@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useQuery, useMutation } from '@apollo/client';
 
-function App() {
+import { GET_ALL_PRODUCTS_QUERY } from './graphql/queries'
+import { normalizeProduct } from './graphql/shopify/utils'
+import { Homepage, Navigation, Products } from './components'
+import './App.scss';
+
+const App = () => {
+
+  const { loading: shopLoading, error: shopError, data: shopData } = useQuery(GET_ALL_PRODUCTS_QUERY)
+
+  if (shopLoading) {
+    return <p>Loading...</p>
+  }
+
+  if (shopError) {
+    return <p>{shopError.message}</p>
+  }
+
+  const products = shopData.products.edges.map(({ node: product }) =>
+    normalizeProduct(product)
+  ) ?? []
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <header>
+          <Navigation />
+        </header>
+        <Switch>
+          <Route exact path='/'>
+            <Homepage products={products} />
+          </Route>
+          <Route path='/:category' children={<Products products={products} />} />
+        </Switch>
+      </Router>
     </div>
   );
 }
