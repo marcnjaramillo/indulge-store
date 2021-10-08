@@ -38,7 +38,7 @@ const Homepage = ({ products }) => {
                 </Link>
                 <p>{bathBomb.title}</p>
                 {/* <p>${bathBomb.salePrice}</p> */}
-                <p>{bathBomb.regularPrice}</p>
+                <p>${bathBomb.regularPrice}</p>
               </span>
             )
           }
@@ -60,7 +60,7 @@ const Homepage = ({ products }) => {
                 </Link>
                 <p>{bathSalt.title}</p>
                 {/* <p>${bathSalt.salePrice}</p> */}
-                <p>{bathSalt.regularPrice}</p>
+                <p>${bathSalt.regularPrice}</p>
               </span>
             )
           }
@@ -82,7 +82,7 @@ const Homepage = ({ products }) => {
                 </Link>
                 <p>{candle.title}</p>
                 {/* <p>${candle.salePrice}</p> */}
-                <p>{candle.regularPrice}</p>
+                <p>${candle.regularPrice}</p>
               </span>
             )
           }
