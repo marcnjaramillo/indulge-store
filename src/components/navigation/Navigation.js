@@ -18,6 +18,9 @@ const Navigation = () => {
         <NavLink className={cn(styles.navbar, 'navbar-brand')} to='/'>
           <img src={logo} className={styles.navbarImage} alt='brand logo' />
         </NavLink>
+        <NavLink to='/cart'>
+          Cart
+        </NavLink>
         <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded={!isOpen ? true : false} aria-label='Toggle navigation' onClick={toggleOpen}>
           <span className='navbar-toggler-icon'></span>
         </button>
