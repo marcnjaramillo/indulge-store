@@ -5,10 +5,10 @@ import { Product } from '../'
 
 import styles from './Products.module.scss'
 
-const Products = ({ products }) => {
+const Products = ({ products, cart, addToCart }) => {
 
   let { category } = useParams()
-  let { url, path } = useRouteMatch();
+  let { url, path } = useRouteMatch()
 
   const pageProducts = products.filter(product => product.productType === `${category}`)
 
@@ -35,7 +35,7 @@ const Products = ({ products }) => {
                     </Link>
                     <p>{product.title}</p>
                     {/* <p>${product.salePrice}</p> */}
-                    <p>{product.regularPrice}</p>
+                    <p>${product.regularPrice}</p>
                   </span>
                 )
               }
@@ -44,7 +44,11 @@ const Products = ({ products }) => {
           </main>
         </Route>
         <Route path={`${path}/:handle`}>
-          <Product product={pageProducts} />
+          <Product
+            product={pageProducts}
+            cart={cart}
+            addToCart={addToCart}
+          />
         </Route>
       </Switch>
     </>
