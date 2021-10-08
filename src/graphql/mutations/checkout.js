@@ -1,5 +1,5 @@
-import gql from 'graphql-tag';
-import { useEffect } from 'react';
+import { useEffect } from 'react'
+import { gql } from '@apollo/client'
 
 const CheckoutFragment = gql`
   fragment CheckoutFragment on Checkout {
@@ -118,7 +118,7 @@ export const checkoutCustomerAssociate = gql`
 export function useCheckoutEffect(data, key, setDataCallback) {
   useEffect(() => {
     if (data && data[key] && data[key].checkout) {
-      setDataCallback(data[key].checkout);
+      setDataCallback(data[key].checkout)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
