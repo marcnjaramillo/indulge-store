@@ -1,45 +1,4 @@
-import { gql } from "@apollo/client"
-
-// const productConnection = `
-//   pageInfo {
-//     hasNextPage
-//     hasPreviousPage
-//   }
-//   edges {
-//     node {
-//       id
-//       title
-//       handle
-//       description
-//       tags
-//       productType
-//       priceRange {
-//         minVariantPrice {
-//           amount
-//         }
-//       }
-//       compareAtPriceRange {
-//         minVariantPrice {
-//           amount
-//         }
-//       }
-//       images(first: 1) {
-//         pageInfo {
-//           hasNextPage
-//           hasPreviousPage
-//         }
-//         edges {
-//           node {
-//             originalSrc
-//             altText
-//             width
-//             height
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+import { gql } from '@apollo/client'
 
 const GET_ALL_PRODUCTS_QUERY = gql`
   query getAllProducts($first: Int = 250) {
