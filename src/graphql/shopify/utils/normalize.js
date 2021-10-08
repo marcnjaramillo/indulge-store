@@ -1,62 +1,3 @@
-export const normalizeCart = (checkout) => {
-  return {
-    id: checkout.id,
-    createdAt: checkout.createdAt,
-    completedAt: checkout.completedAt,
-    currency: {
-      code: checkout.totalPriceV2.currencyCode
-    },
-    taxesIncluded: checkout.taxesIncluded,
-    lineItemsSubtotalPrice: +checkout.subtotalPriceV2.amount,
-    totalPrice: checkout.totalPriceV2.amount,
-    lineItems: checkout.lineItems.edges.map(normalizeLineItem),
-    discounts: []
-  }
-}
-
-// const normalizeLineItem = ({ node: { id, title, variant, ...rest } }) => {
-//   return {
-//     id,
-//     variantId: String(variant?.id),
-//     productId: String(variant?.id),
-//     path: variant?.product?.handle ?? '',
-//     name: title,
-//     ...rest
-//   }
-// }
-
-const normalizeLineItem = ({ node: { id, title, variant, ...rest } }) => {
-  return {
-    id,
-    variantId: String(variant?.id),
-    productId: String(variant?.id),
-    name: title,
-    path: variant?.product?.handle ?? '',
-    discounts: [],
-    options: variant?.selectedOptions.map(({ name, value }) => {
-      const option = normalizeProductOption({
-        id,
-        name,
-        values: [value]
-      })
-
-      return option
-    }),
-    variant: {
-      id: String(variant?.id),
-      sku: variant?.sku ?? '',
-      name: variant?.title,
-      image: {
-        url: variant?.image?.originalSrc
-      },
-      requiresShipping: variant?.requiresShipping ?? false,
-      salePrice: variant?.priceV2.amount,
-      regularPrice: variant?.compareAtPriceV2?.amount,
-    },
-    ...rest
-  }
-}
-
 const normalizeProductImages = ({ edges }) =>
   edges.map(({ node: { originalSrc: url, ...rest } }) => ({
     url: url, ...rest
@@ -111,7 +52,7 @@ const normalizeProductVariants = ({ edges }) => {
   })
 }
 
-export function normalizeProduct(productNode) {
+export const normalizeProduct = (productNode) => {
   const {
     id,
     title,
