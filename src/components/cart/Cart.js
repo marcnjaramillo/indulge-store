@@ -4,6 +4,8 @@ import { useQuery } from '@apollo/client'
 import { GET_CART_QUERY } from '../../graphql/queries'
 
 import { LineItem } from '../'
+import { CardIcon } from '../icons'
+
 import styles from './Cart.module.scss'
 
 const Cart = ({ cart, removeCartLines, updateCartLines }) => {
@@ -36,7 +38,7 @@ const Cart = ({ cart, removeCartLines, updateCartLines }) => {
 
   return (
     <div>
-      <header className="Cart__header">
+      <header className={styles.cartHeader}>
         <h2>Your Cart</h2>
       </header>
       {line_items.length === 0 ? (
@@ -46,27 +48,23 @@ const Cart = ({ cart, removeCartLines, updateCartLines }) => {
           <ul className={styles.linesContainer}>
             {line_items}
           </ul>
-          <section className="Cart__footer">
-            <div className="Cart-info clearfix">
-              <div className="Cart-info__total Cart-info__small">Subtotal</div>
-              <div className="Cart-info__pricing">
-                <span className="pricing">${parseFloat(cart.estimatedCost.subtotalAmount.amount).toFixed(2)}</span>
-              </div>
+          <section className={styles.cartDetails}>
+            <div className={styles.cartInfo}>
+              <span className={styles.subtotal}>Subtotal</span>
+              <span className={styles.price}>${parseFloat(cart.estimatedCost.subtotalAmount?.amount).toFixed(2)}</span>
             </div>
-            <div className="Cart-info clearfix">
-              <div className="Cart-info__total Cart-info__small">Taxes</div>
-              <div className="Cart-info__pricing">
-                <span className="pricing">${parseFloat(cart.estimatedCost.totalTaxAmount.amount).toFixed(2)}</span>
-              </div>
+            <div className={styles.cartInfo}>
+              <span className={styles.taxes}>Taxes</span>
+              <span className={styles.price}>${parseFloat(cart.estimatedCost.totalTaxAmount?.amount).toFixed(2)}</span>
             </div>
-            <div className="Cart-info clearfix">
-              <div className="Cart-info__total Cart-info__small">Total</div>
-              <div className="Cart-info__pricing">
-                <span className="pricing">${parseFloat(cart.estimatedCost.totalAmount.amount).toFixed(2)}</span>
-              </div>
+            <div className={styles.cartInfo}>
+              <span className={styles.total}><strong>Total</strong></span>
+              <span className={styles.price}><strong>${parseFloat(cart.estimatedCost.totalAmount?.amount).toFixed(2)}</strong></span>
             </div>
-            <button className="Cart__checkout button" onClick={openCheckout}>Checkout</button>
           </section>
+          <div className={styles.checkoutContainer}>            
+            <button className={styles.checkoutButton} onClick={openCheckout}><CardIcon />Checkout</button>
+          </div>
         </>
       )
       }
