@@ -16,7 +16,7 @@ const Navigation = ({ cart }) => {
   }
 
   return (
-    <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+    <nav className={cn('navbar navbar-expand-lg navbar-light', styles.navbarBackground)}>
       <div className='container-fluid'>
         <NavLink className={cn(styles.navbar, 'navbar-brand')} to='/'>
           <img src={logo} className={styles.navbarImage} alt='brand logo' />
@@ -44,7 +44,7 @@ const Navigation = ({ cart }) => {
           </ul>
           <form className='d-flex'>
             <input className='form-control me-2' type='search' placeholder='Search' aria-label='Search' />
-            <button className='btn btn-outline-success' type='submit'>Search</button>
+            <button className={cn('btn', styles.buttonSearch)} type='submit'>Search</button>
           </form>
         </div>
       </div>

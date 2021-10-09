@@ -42,7 +42,7 @@ const Cart = ({ cart, removeCartLines, updateCartLines }) => {
         <h2>Your Cart</h2>
       </header>
       {line_items.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className={styles.emptyCart}>Your cart is empty.</p>
       ) : (
         <>
           <ul className={styles.linesContainer}>

@@ -11,31 +11,40 @@ const Product = ({ addToCart, product: pageProduct }) => {
   const product = pageProduct.find(product => product.handle === `${handle}`)
 
   const [variant] = useState(product.variants[0])
-  const [variantQuantity, setQuantity] = useState(1)
+  const [variantQuantity, setVariantQuantity] = useState(1)
   const [isOpen, setIsOpen] = useState(true)
 
   const toggleOpen = () => {
     setIsOpen(!isOpen)
   }
 
-  const handleQuantityChange = (event) => {
-    setQuantity(event.target.value)
+  const decrementQuantity = () => {
+    const updatedQuantity = variantQuantity - 1
+    setVariantQuantity(updatedQuantity)
+  }
+
+  const incrementQuantity = () => {
+    const updatedQuantity = variantQuantity + 1
+    setVariantQuantity(updatedQuantity)
   }
 
   return (
     <div className='container'>
-      <header>
+      <header className={styles.productHeader}>
         <img src={product.images[0].url} alt={`${product.title}`} className={styles.productImage} />
         <h1 className={styles.productHeading}>{handle.replace(/-/g, ' ')}</h1>
+        <p className={styles.productPrice}>${variant.price}</p>
       </header>
-      <main>
-        <p>${variant.price}</p>
-        <label>
-          Quantity
-          <input min='1' type='number' defaultValue={variantQuantity} onChange={handleQuantityChange}></input>
-        </label>
-        <button className="Product__buy button" onClick={() => addToCart(variant.id, variantQuantity)}>Add to Cart</button>
-        <section>
+      <main className={styles.productBody}>
+        <div className={styles.addToCart}>
+          <div className="input-group">
+            <button className="btn btn-outline-secondary" type="button" onClick={() => decrementQuantity()}>-</button>
+            <span className={styles.quantity}>{variantQuantity}</span>
+            <button className="btn btn-outline-secondary" type="button" onClick={() => incrementQuantity()}>+</button>
+          </div>
+          <button className={styles.addButton} onClick={() => addToCart(variant.id, variantQuantity)}>Add to Cart</button>
+        </div>
+        <section className={styles.productDescription}>
           <p>
             <span>Description</span>
             <button className='btn btn-outline-secondary' type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded={!isOpen ? true : false} aria-controls="collapseDetails" onClick={toggleOpen}>

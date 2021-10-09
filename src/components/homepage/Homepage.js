@@ -15,8 +15,8 @@ const Homepage = ({ products }) => {
         <div className={styles.homepageHero}>
           <div className={styles.darkOverlay}>
             <div className={styles.overlayText}>
-              <h1 className={styles.heading1}>Indulge in...</h1>
-              <h2 className={styles.heading2}>Me Time</h2>
+              <h1 className={styles.heading1}>Indulge...</h1>
+              <h2 className={styles.heading2}>in Me Time</h2>
             </div>
           </div>
         </div>
