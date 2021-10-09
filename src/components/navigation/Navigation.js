@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom'
 import logo from '../../assets/images/brand-transparent.png'
 import cn from 'classnames'
 import styles from './Navigation.module.scss'
+import CartIcon from '../icons/CartIcon'
 
-const Navigation = () => {
+const Navigation = ({ cart }) => {
 
   const [isOpen, setIsOpen] = useState(true)
 
@@ -19,7 +20,7 @@ const Navigation = () => {
           <img src={logo} className={styles.navbarImage} alt='brand logo' />
         </NavLink>
         <NavLink to='/cart'>
-          Cart
+          <CartIcon cart={cart} />
         </NavLink>
         <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded={!isOpen ? true : false} aria-label='Toggle navigation' onClick={toggleOpen}>
           <span className='navbar-toggler-icon'></span>

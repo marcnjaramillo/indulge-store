@@ -47,6 +47,8 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  console.log(cart.lines.edges.length)
+
   useCartEffect(createCartData, 'cartCreate', setCart)
   useCartEffect(cartLinesAddData, 'cartLinesAdd', setCart)
   useCartEffect(cartLinesUpdateData, 'cartLinesUpdate', setCart)
@@ -84,7 +86,7 @@ const App = () => {
     <div>
       <Router>
         <header>
-          <Navigation />
+          <Navigation cart={cart} />
         </header>
         <Switch>
           <Route exact path='/'>
