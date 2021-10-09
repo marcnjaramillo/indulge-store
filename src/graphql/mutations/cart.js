@@ -139,8 +139,6 @@ export const cartLinesRemove = gql`
               quantity
               merchandise {
                 ...cartItem
-                id
-                title
               }
             }
           }
