@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from '../../assets/images/brand-transparent.png'
 import cn from 'classnames'
+
+import logo from '../../assets/images/brand-transparent.png'
+import { CartIcon } from '../icons'
+
 import styles from './Navigation.module.scss'
-import CartIcon from '../icons/CartIcon'
 
 const Navigation = ({ cart }) => {
 
