@@ -1,29 +1,36 @@
 .cartLine {
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  justify-items: baseline;
+  justify-items: center;
+  align-items: center;
+  border-bottom: 2px solid lightgray;
+  margin-top: 1rem;
 }
 
 .imageContainer {
-  max-width: 30vw;
+  max-width: 40vw;
 }
 
 .productImage {
-  max-width: 30vw;
-  max-height: 10vh;
+  max-width: 40vw;
+  max-height: 13vh;
 }
 
-.lineDetails {
-  display: flex;
-  flex-wrap: wrap;
-}
+// .lineDetails {
+
+// }
 
 .lineTitle {
   flex-grow: 0.5;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
-.lineRow {
+.linePrice {
+  margin-bottom: 1rem;
+}
+
+.lineQuantity {
   flex-grow: 0.5;
 }
 
@@ -47,4 +54,18 @@
   -moz-appearance: none;
   appearance: none;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.removeButton {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border-color: red;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.removeButton:hover {
+  background-color: darkred;
+  border-color: darkred;
 }
