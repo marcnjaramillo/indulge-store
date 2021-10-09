@@ -1,0 +1,50 @@
+.cartLine {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  justify-items: baseline;
+}
+
+.imageContainer {
+  max-width: 30vw;
+}
+
+.productImage {
+  max-width: 30vw;
+  max-height: 10vh;
+}
+
+.lineDetails {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lineTitle {
+  flex-grow: 0.5;
+  text-align: center;
+}
+
+.lineRow {
+  flex-grow: 0.5;
+}
+
+.quantity {
+  display: block;
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
