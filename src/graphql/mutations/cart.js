@@ -4,9 +4,8 @@ import { gql } from '@apollo/client'
 const cartItem = gql`
   fragment cartItem on ProductVariant {
     id
-    price: compareAtPriceV2 {
+    price: priceV2 {
       amount
-      currencyCode
     }
     image {
       originalSrc
@@ -67,37 +66,29 @@ export const cartLinesAdd = gql`
               id
               quantity
               merchandise {
-                ...on ProductVariant {
-                id
-                price: compareAtPriceV2 {
-                  amount
-                }
-                title
-                itemImage: image {
-                  originalSrc
-                }
+                ...cartItem
               }
             }
           }
         }
-      }
-      estimatedCost {
-        totalAmount {
-          amount
-        }
-        subtotalAmount {
-          amount
-        }
-        totalTaxAmount {
-          amount
-        }
-        totalDutyAmount {
-          amount
+        estimatedCost {
+          totalAmount {
+            amount
+          }
+          subtotalAmount {
+            amount
+          }
+          totalTaxAmount {
+            amount
+          }
+          totalDutyAmount {
+            amount
+          }
         }
       }
     }
   }
-}
+${cartItem}
 `
 
 export const cartLinesUpdate = gql`
@@ -111,37 +102,29 @@ export const cartLinesUpdate = gql`
               id
               quantity
               merchandise {
-                ...on ProductVariant {
-                id
-                price: compareAtPriceV2 {
-                  amount
-                }
-                title
-                itemImage: image {
-                  originalSrc
-                }
+                ...cartItem
               }
             }
           }
         }
-      }
-      estimatedCost {
-        totalAmount {
-          amount
-        }
-        subtotalAmount {
-          amount
-        }
-        totalTaxAmount {
-          amount
-        }
-        totalDutyAmount {
-          amount
+        estimatedCost {
+          totalAmount {
+            amount
+          }
+          subtotalAmount {
+            amount
+          }
+          totalTaxAmount {
+            amount
+          }
+          totalDutyAmount {
+            amount
+          }
         }
       }
     }
   }
-}
+${cartItem}
 `
 
 export const cartLinesRemove = gql`
@@ -155,34 +138,28 @@ export const cartLinesRemove = gql`
               id
               quantity
               merchandise {
-                ...on ProductVariant {
+                ...cartItem
                 id
-                price: compareAtPriceV2 {
-                  amount
-                }
                 title
-                itemImage: image {
-                  originalSrc
-                }
               }
             }
           }
         }
-      }
-      estimatedCost {
-        subtotalAmount {
-          amount
-        }
-        totalTaxAmount {
-          amount
-        }
-        totalDutyAmount {
-          amount
+        estimatedCost {
+          subtotalAmount {
+            amount
+          }
+          totalTaxAmount {
+            amount
+          }
+          totalDutyAmount {
+            amount
+          }
         }
       }
     }
   }
-}
+${cartItem}
 `
 
 export function useCartEffect(data, key, setDataCallback) {

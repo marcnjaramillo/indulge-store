@@ -3,9 +3,8 @@ import { gql } from '@apollo/client'
 const cartItem = gql`
   fragment cartItem on ProductVariant {
     id
-    price: compareAtPriceV2 {
+    price: priceV2 {
       amount
-      currencyCode
     }
     image {
       originalSrc
@@ -34,19 +33,15 @@ const GET_CART_QUERY = gql`
       estimatedCost {
         totalAmount {
           amount
-          currencyCode
         }
         subtotalAmount {
           amount
-          currencyCode
         }
         totalTaxAmount {
           amount
-          currencyCode
         }
         totalDutyAmount {
           amount
-          currencyCode
         }
       }
       buyerIdentity {

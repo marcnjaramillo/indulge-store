@@ -36,7 +36,7 @@ const normalizeProductVariants = ({ edges }) => {
       id,
       title,
       sku: sku || id,
-      salePrice: priceV2.amount,
+      price: priceV2.amount,
       regularPrice: compareAtPriceV2.amount,
       requiresShipping: true,
       options: selectedOptions.map(({ name, value }) => {
@@ -76,7 +76,7 @@ export const normalizeProduct = (productNode) => {
     productType,
     handle,
     images: normalizeProductImages(imageConnection),
-    salePrice: priceRange.minVariantPrice.amount,
+    price: priceRange.minVariantPrice.amount,
     regularPrice: compareAtPriceRange.minVariantPrice.amount,
     options: options ?
       options.filter(o => o.name !== 'Title')
