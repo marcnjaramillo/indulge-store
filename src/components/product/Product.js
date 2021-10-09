@@ -29,7 +29,7 @@ const Product = ({ addToCart, product: pageProduct }) => {
         <h1 className={styles.productHeading}>{handle.replace(/-/g, ' ')}</h1>
       </header>
       <main>
-        <p>${variant.regularPrice}</p>
+        <p>${variant.price}</p>
         <label>
           Quantity
           <input min='1' type='number' defaultValue={variantQuantity} onChange={handleQuantityChange}></input>

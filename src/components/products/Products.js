@@ -34,8 +34,8 @@ const Products = ({ products, cart, addToCart }) => {
                       )}
                     </Link>
                     <p>{product.title}</p>
-                    {/* <p>${product.salePrice}</p> */}
-                    <p>${product.regularPrice}</p>
+                    <p>${product.price}</p>
+                    {/* <p>${product.regularPrice}</p> */}
                   </span>
                 )
               }
