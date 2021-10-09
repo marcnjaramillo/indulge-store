@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client'
 import { GET_CART_QUERY } from '../../graphql/queries'
 
 import { LineItem } from '../'
+import styles from './Cart.module.scss'
 
 const Cart = ({ cart, removeCartLines, updateCartLines }) => {
 
@@ -42,7 +43,7 @@ const Cart = ({ cart, removeCartLines, updateCartLines }) => {
         <p>Your cart is empty.</p>
       ) : (
         <>
-          <ul>
+          <ul className={styles.linesContainer}>
             {line_items}
           </ul>
           <section className="Cart__footer">
