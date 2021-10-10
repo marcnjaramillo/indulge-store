@@ -1,14 +1,16 @@
-import React from 'react'
+import { useState } from 'react'
 import { useQuery } from '@apollo/client'
 
 import { GET_CART_QUERY } from '../../graphql/queries'
 
-import { LineItem } from '../'
+import { LineItem, CheckoutModal } from '../'
 import { CardIcon } from '../icons'
 
 import styles from './Cart.module.scss'
 
 const Cart = ({ cart, removeCartLines, updateCartLines }) => {
+
+  const [modalShow, setModalShow] = useState(false);
 
   const { loading: cartLoading, error: cartError, data: cartData } = useQuery(GET_CART_QUERY, { variables: { cartId: cart.id } })
 
@@ -31,8 +33,12 @@ const Cart = ({ cart, removeCartLines, updateCartLines }) => {
     )
   })
 
-  const openCheckout = () => {
-    alert('Thanks for checking out this demo!')
+  const onShow = () => {
+    setModalShow(true)
+  }
+
+  const onHide = () => {
+    setModalShow(false)
     window.location.replace('/')
   }
 
@@ -41,6 +47,7 @@ const Cart = ({ cart, removeCartLines, updateCartLines }) => {
       <header className={styles.cartHeader}>
         <h2>Your Cart</h2>
       </header>
+      <CheckoutModal show={modalShow} onHide={onHide} />
       {line_items.length === 0 ? (
         <p className={styles.emptyCart}>Your cart is empty.</p>
       ) : (
@@ -63,7 +70,7 @@ const Cart = ({ cart, removeCartLines, updateCartLines }) => {
             </div>
           </section>
           <div className={styles.checkoutContainer}>            
-            <button className={styles.checkoutButton} onClick={openCheckout}><CardIcon />Checkout</button>
+            <button className={styles.checkoutButton} onClick={onShow}><CardIcon />Checkout</button>
           </div>
         </>
       )
