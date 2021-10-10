@@ -1,11 +1,12 @@
 import { Link, Switch, Route, useParams, useRouteMatch } from 'react-router-dom'
+import { Image } from 'react-bootstrap'
 import cn from 'classnames'
 
 import { Product } from '../'
 
 import styles from './Products.module.scss'
 
-const Products = ({ products, cart, addToCart }) => {
+const Products = ({ products, cart, addToCart, show, onHide }) => {
 
   let { category } = useParams()
   let { url, path } = useRouteMatch()
@@ -16,7 +17,7 @@ const Products = ({ products, cart, addToCart }) => {
     <>
       <Switch>
         <Route exact path={path}>
-          <header>
+          <header className={styles.pageHeading}>
             <h1 className={styles.categoryHeading}>{category.replace(/-/g, ' ')}</h1>
           </header>
           <main>
@@ -26,8 +27,8 @@ const Products = ({ products, cart, addToCart }) => {
                   <span className={cn(styles.product, 'col-6')} key={product.id}>
                     <Link to={`${url}/${product.handle}`}>
                       {product.images && (
-                        <img
-                          className={cn(styles.productImage, 'img-responsive')}
+                        <Image
+                          className={styles.productImage}
                           alt={`${product.title}`}
                           src={product.images[0].url}
                         />
@@ -48,6 +49,8 @@ const Products = ({ products, cart, addToCart }) => {
             product={pageProducts}
             cart={cart}
             addToCart={addToCart}
+            show={show}
+            onHide={onHide}
           />
         </Route>
       </Switch>

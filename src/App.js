@@ -17,6 +17,8 @@ import './App.scss'
 const App = () => {
   const [cart, setCart] = useState({ lines: { edges: [] } })
 
+  const [modalShow, setModalShow] = useState(false);
+
   const [createCartMutation,
     { data: createCartData }] = useMutation(createCart);
 
@@ -47,14 +49,17 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  console.log(cart.lines.edges.length)
-
   useCartEffect(createCartData, 'cartCreate', setCart)
   useCartEffect(cartLinesAddData, 'cartLinesAdd', setCart)
   useCartEffect(cartLinesUpdateData, 'cartLinesUpdate', setCart)
   useCartEffect(cartLinesRemoveData, 'cartLinesRemove', setCart)
 
+  const onHide = () => {
+    setModalShow(false)
+  }
+
   const addToCart = (merchandiseId, quantity) => {
+    setModalShow(true)
     const variables = { cartId: cart.id, lines: [{ merchandiseId, quantity: parseInt(quantity, 10) }] }
 
     cartLinesAddMutation({ variables })
@@ -85,9 +90,7 @@ const App = () => {
   return (
     <div>
       <Router>
-        <header>
-          <Navigation cart={cart} />
-        </header>
+        <Navigation cart={cart} />
         <Switch>
           <Route exact path='/'>
             <Homepage products={products} />
@@ -105,6 +108,8 @@ const App = () => {
                 products={products}
                 cart={cart}
                 addToCart={addToCart}
+                show={modalShow}
+                onHide={onHide}
               />
             }
           />

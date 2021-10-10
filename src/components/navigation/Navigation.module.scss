@@ -1,5 +1,5 @@
 .navbar {
-  display: contents;
+  display: contents !important;
 }
 
 .navbarImage {
@@ -13,4 +13,5 @@
 .buttonSearch {
   color:#9368A8;
   border-color: #9368A8;
+  border-radius: 4px;
 }
