@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Image } from 'react-bootstrap'
 import cn from 'classnames'
 
 import styles from './Homepage.module.scss'
@@ -22,15 +23,16 @@ const Homepage = ({ products }) => {
         </div>
       </header>
       <main className='container'>
+        <h1 className={styles.allProducts}>All Products</h1>
         <section className={cn(styles.productSection, 'row')}>
-          <h1>Bath Bombs</h1>
+          <h2>Bath Bombs</h2>
           {bathBombs.map(bathBomb => {
             return (
               <span className={cn(styles.product, 'col-6')} key={bathBomb.id}>
                 <Link to={`/bath-bombs/${bathBomb.handle}`}>
                   {bathBomb.images && (
-                    <img
-                      className={cn(styles.productImage, 'img-responsive')}
+                    <Image
+                      className={styles.productImage}
                       alt='bath bomb'
                       src={bathBomb.images[0].url}
                     />
@@ -45,14 +47,14 @@ const Homepage = ({ products }) => {
           )}
         </section>
         <section className={cn(styles.productSection, 'row')}>
-          <h1>Bath Salts</h1>
+          <h2>Bath Salts</h2>
           {bathSalts.map(bathSalt => {
             return (
               <span className={cn(styles.product, 'col-6')} key={bathSalt.id}>
                 <Link to={`/bath-salts/${bathSalt.handle}`}>
                   {bathSalt.images && (
-                    <img
-                      className={cn(styles.productImage, 'img-responsive')}
+                    <Image
+                      className={styles.productImage}
                       alt='bath salt'
                       src={bathSalt.images[0].url}
                     />
@@ -67,14 +69,14 @@ const Homepage = ({ products }) => {
           )}
         </section>
         <section className={cn(styles.productSection, 'row')}>
-          <h1>Candles</h1>
+          <h2>Candles</h2>
           {candles.map(candle => {
             return (
               <span className={cn(styles.product, 'col-6')} key={candle.id}>
                 <Link to={`/candles/${candle.handle}`}>
                   {candle.images && (
-                    <img
-                      className={cn(styles.productImage, 'img-responsive')}
+                    <Image
+                      className={styles.productImage}
                       alt='candle'
                       src={candle.images[0].url}
                     />

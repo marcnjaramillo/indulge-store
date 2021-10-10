@@ -1,5 +1,13 @@
+.pageHeading {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  text-align: center;
+  margin: 3rem 0;
+}
+
 .categoryHeading {
   text-transform: capitalize;
+  margin-top: 0.5rem;
 }
 
 .productImage {
@@ -7,7 +15,7 @@
 }
 
 .productSection {
-  margin-bottom: 2rem;
+  margin-bottom: 0 0.5rem;
 }
 
 .product {

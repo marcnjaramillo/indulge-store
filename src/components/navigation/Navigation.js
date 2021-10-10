@@ -1,7 +1,6 @@
 // import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Navbar, Nav, Container} from 'react-bootstrap'
-import cn from 'classnames'
+import { Button, Container, Navbar, Nav } from 'react-bootstrap'
 
 import logo from '../../assets/images/brand-transparent.png'
 import { CartIcon } from '../icons'
@@ -39,7 +38,7 @@ const Navigation = ({ cart }) => {
           </Nav>
           <form className='d-flex'>
             <input className='form-control me-2' type='search' placeholder='Search' aria-label='Search' />
-            <button className={cn('btn', styles.buttonSearch)} type='submit'>Search</button>
+            <Button bsPrefix='buttonSearch' className={styles.buttonSearch} type='submit' disabled>Search</Button>
           </form>
         </Navbar.Collapse>
       </Container>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useQuery } from '@apollo/client'
+import { Button } from 'react-bootstrap'
 
 import { GET_CART_QUERY } from '../../graphql/queries'
 
@@ -70,7 +71,7 @@ const Cart = ({ cart, removeCartLines, updateCartLines }) => {
             </div>
           </section>
           <div className={styles.checkoutContainer}>            
-            <button className={styles.checkoutButton} onClick={onShow}><CardIcon />Checkout</button>
+            <Button bsPrefix='checkoutButton' className={styles.checkoutButton} onClick={onShow}><CardIcon />Checkout</Button>
           </div>
         </>
       )
