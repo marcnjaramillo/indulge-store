@@ -1,0 +1,46 @@
+.modalHeader {
+  border-bottom: none;
+}
+
+.modalBody {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.modalImage {
+  max-width: 30vw;
+  height: auto;
+}
+
+.modalFooter {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: none;
+}
+
+.viewCart {
+  background-color: #959494;
+  color: white;
+  border-color: #959494;;
+  border-radius: 4px;
+  text-decoration: none; 
+  text-transform: uppercase;
+}
+
+.viewCart:hover {
+  background-color: #767676;
+  border-color: #767676;
+}
+
+.continueShopping {
+  background-color: #9368A8;
+  color: white;
+  border-color: #9368A8;;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.continueShopping:hover {
+  background-color: #6c497c;
+  border-color: #6c497c;
+}

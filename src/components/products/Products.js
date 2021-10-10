@@ -5,7 +5,7 @@ import { Product } from '../'
 
 import styles from './Products.module.scss'
 
-const Products = ({ products, cart, addToCart }) => {
+const Products = ({ products, cart, addToCart, show, onHide }) => {
 
   let { category } = useParams()
   let { url, path } = useRouteMatch()
@@ -48,6 +48,8 @@ const Products = ({ products, cart, addToCart }) => {
             product={pageProducts}
             cart={cart}
             addToCart={addToCart}
+            show={show}
+            onHide={onHide}
           />
         </Route>
       </Switch>

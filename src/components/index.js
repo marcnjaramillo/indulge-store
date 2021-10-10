@@ -1,6 +1,7 @@
 export { default as Cart } from './cart/Cart'
 export { default as LineItem } from './line-item/LineItem'
 export { default as Homepage } from './homepage/Homepage'
+export { default as ProductModal } from './modal/ProductModal'
 export { default as Navigation } from './navigation/Navigation'
 export { default as Product } from './product/Product'
 export { default as Products } from './products/Products'

@@ -25,6 +25,10 @@
   margin-top: 2rem;
 }
 
+.descriptionBody {
+  border-top: 1px solid gray;
+}
+
 .addToCart {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -53,11 +57,12 @@
 }
 
 .addButton {
-  background-color: #9368A8;;
+  background-color: #9368A8;
   color: white;
   font-weight: bold;
   border-color: #9368A8;;
   border-radius: 4px;
+  text-transform: uppercase;
 }
 
 .addButton:hover {

@@ -1,5 +1,6 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { Navbar, Nav, Container} from 'react-bootstrap'
 import cn from 'classnames'
 
 import logo from '../../assets/images/brand-transparent.png'
@@ -9,46 +10,40 @@ import styles from './Navigation.module.scss'
 
 const Navigation = ({ cart }) => {
 
-  const [isOpen, setIsOpen] = useState(true)
+  // const [isOpen, setIsOpen] = useState(true)
 
-  const toggleOpen = () => {
-    setIsOpen(!isOpen)
-  }
+  // const handleSelect = () => {
+    
+  // }
 
   return (
-    <nav className={cn('navbar navbar-expand-lg navbar-light', styles.navbarBackground)}>
-      <div className='container-fluid'>
-        <NavLink className={cn(styles.navbar, 'navbar-brand')} to='/'>
+    <Navbar collapseOnSelect={true} expand='lg' className={styles.navbarBackground}>
+      <Container fluid>
+        <Nav.Link eventKey='1' as={NavLink} className={styles.navbar} to='/'>
           <img src={logo} className={styles.navbarImage} alt='brand logo' />
-        </NavLink>
-        <NavLink to='/cart'>
+        </Nav.Link>
+        <Nav.Link eventKey='2' as={NavLink} to='/cart'>
           <CartIcon cart={cart} />
-        </NavLink>
-        <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded={!isOpen ? true : false} aria-label='Toggle navigation' onClick={toggleOpen}>
-          <span className='navbar-toggler-icon'></span>
-        </button>
-        <div className={`${isOpen ? 'collapse' : ''} navbar-collapse`} id='navbarSupportedContent'>
-          <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-            <li className='nav-item'>
-              <NavLink className='nav-link active' aria-current='page' to='/' onClick={toggleOpen}>Home</NavLink>
-            </li>
-            <li className='nav-item'>
-              <NavLink className='nav-link' to='/bath-bombs' onClick={toggleOpen}>Bath Bombs</NavLink>
-            </li>
-            <li className='nav-item'>
-              <NavLink className='nav-link' to='/bath-salts' onClick={toggleOpen}>Bath Salts</NavLink>
-            </li>
-            <li className='nav-item'>
-              <NavLink className='nav-link' to='/candles' onClick={toggleOpen}>Candles</NavLink>
-            </li>
-          </ul>
+        </Nav.Link>
+        <Navbar.Toggle aria-controls='responsive-nabar-nav'/>
+        <Navbar.Collapse id='responsive-nabar-nav'>
+          <Nav className='me-auto mb-2 mb-lg-0' >
+            <Nav.Link eventKey='3' as={NavLink} className='nav-link' to='/'>Home</Nav.Link>
+
+            <Nav.Link eventKey='4' as={NavLink} className='nav-link' to='/bath-bombs'>Bath Bombs</Nav.Link>
+
+            <Nav.Link eventKey='5' as={NavLink} className='nav-link' to='/bath-salts'>Bath Salts</Nav.Link>
+
+            <Nav.Link eventKey='6' as={NavLink} className='nav-link' to='/candles'>Candles</Nav.Link>
+
+          </Nav>
           <form className='d-flex'>
             <input className='form-control me-2' type='search' placeholder='Search' aria-label='Search' />
             <button className={cn('btn', styles.buttonSearch)} type='submit'>Search</button>
           </form>
-        </div>
-      </div>
-    </nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   )
 }
 

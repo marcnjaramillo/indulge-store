@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import {Accordion, Button, Image} from 'react-bootstrap'
 // import cn from 'classnames'
+
+import { ProductModal } from '../'
 
 import styles from './Product.module.scss'
 
-const Product = ({ addToCart, product: pageProduct }) => {
+const Product = ({ addToCart, show, onHide, product: pageProduct }) => {
 
   let { handle } = useParams()
 
@@ -12,11 +15,6 @@ const Product = ({ addToCart, product: pageProduct }) => {
 
   const [variant] = useState(product.variants[0])
   const [variantQuantity, setVariantQuantity] = useState(1)
-  const [isOpen, setIsOpen] = useState(true)
-
-  const toggleOpen = () => {
-    setIsOpen(!isOpen)
-  }
 
   const decrementQuantity = () => {
     const updatedQuantity = variantQuantity - 1
@@ -31,33 +29,33 @@ const Product = ({ addToCart, product: pageProduct }) => {
   return (
     <div className='container'>
       <header className={styles.productHeader}>
-        <img src={product.images[0].url} alt={`${product.title}`} className={styles.productImage} />
+        <Image src={product.images[0].url} alt={`${product.title}`} className={styles.productImage} />
         <h1 className={styles.productHeading}>{handle.replace(/-/g, ' ')}</h1>
         <p className={styles.productPrice}>${variant.price}</p>
       </header>
       <main className={styles.productBody}>
+        <ProductModal show={show} onHide={onHide} product={product} />
         <div className={styles.addToCart}>
           <div className="input-group">
-            <button className="btn btn-outline-secondary" type="button" onClick={() => decrementQuantity()}>-</button>
+            {variantQuantity > 1 ? (
+              <Button variant='outline-secondary' type='button' onClick={() => decrementQuantity()}>-</Button>
+            ) : (
+              <Button variant='outline-secondary' type='button' disabled>-</Button>
+            )}
             <span className={styles.quantity}>{variantQuantity}</span>
-            <button className="btn btn-outline-secondary" type="button" onClick={() => incrementQuantity()}>+</button>
+            <Button variant='outline-secondary' type='button' onClick={() => incrementQuantity()}>+</Button>
           </div>
-          <button className={styles.addButton} onClick={() => addToCart(variant.id, variantQuantity)}>Add to Cart</button>
+          <Button className={styles.addButton} onClick={() => addToCart(variant.id, variantQuantity)}>Add to Cart</Button>
         </div>
         <section className={styles.productDescription}>
-          <p>
-            <span>Description</span>
-            <button className='btn btn-outline-secondary' type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded={!isOpen ? true : false} aria-controls="collapseDetails" onClick={toggleOpen}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-              </svg>
-            </button>
-          </p>
-          <div className={`${isOpen ? 'collapse' : 'collapse show'}`} id="collapseDetails">
-            <div>
-              {product.description}
-            </div>
-          </div>
+          <Accordion>
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>Description</Accordion.Header>
+              <Accordion.Body className={styles.descriptionBody}>
+                {product.description}
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
         </section>
       </main>
     </div>
