@@ -24,7 +24,7 @@ const Products = ({ products, cart, addToCart, show, onHide }) => {
             <section className={cn(styles.productSection, 'row')}>
               {pageProducts.map(product => {
                 return (
-                  <span className={cn(styles.product, 'col-6')} key={product.id}>
+                  <span className={cn(styles.product, 'col-6 col-lg-4')} key={product.id}>
                     <Link to={`${url}/${product.handle}`}>
                       {product.images && (
                         <Image

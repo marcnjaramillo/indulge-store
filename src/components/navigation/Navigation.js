@@ -1,6 +1,7 @@
 // import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Button, Container, Navbar, Nav } from 'react-bootstrap'
+import { Button, InputGroup, Form, FormControl, Navbar, Nav } from 'react-bootstrap'
+import cn from 'classnames'
 
 import logo from '../../assets/images/brand-transparent.png'
 import { CartIcon } from '../icons'
@@ -17,16 +18,34 @@ const Navigation = ({ cart }) => {
 
   return (
     <Navbar collapseOnSelect={true} expand='lg' className={styles.navbarBackground}>
-      <Container fluid>
+      <div>
+        <div className={styles.navContainer}>
         <Nav.Link eventKey='1' as={NavLink} className={styles.navbar} to='/'>
           <img src={logo} className={styles.navbarImage} alt='brand logo' />
         </Nav.Link>
-        <Nav.Link eventKey='2' as={NavLink} to='/cart'>
+        <Form className={styles.searchForm}>
+          <InputGroup className="mb-3">
+            <FormControl
+              className={styles.formInput}
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="basic-addon2"
+            />
+            <Button bsPrefix='buttonSearch' className={styles.buttonSearch}  id="button-addon2">
+              Search
+            </Button>
+          </InputGroup>
+        </Form>
+        <Nav.Link className={styles.customerCart} eventKey='2' as={NavLink} to='/cart'>
           <CartIcon cart={cart} />
         </Nav.Link>
-        <Navbar.Toggle aria-controls='responsive-nabar-nav'/>
-        <Navbar.Collapse id='responsive-nabar-nav'>
-          <Nav className='me-auto mb-2 mb-lg-0' >
+        </div>
+        <Navbar.Toggle
+          className={styles.toggleButton} 
+          aria-controls='responsive-nabar-nav' 
+        />
+        <Navbar.Collapse bsPrefix='responsiveNav' className={styles.responsiveNav} id='responsive-nabar-nav'>
+          <Nav className={cn(styles.navLinks, 'me-auto mb-2 mb-lg-0')} >
             <Nav.Link eventKey='3' as={NavLink} className='nav-link' to='/'>Home</Nav.Link>
 
             <Nav.Link eventKey='4' as={NavLink} className='nav-link' to='/bath-bombs'>Bath Bombs</Nav.Link>
@@ -34,14 +53,22 @@ const Navigation = ({ cart }) => {
             <Nav.Link eventKey='5' as={NavLink} className='nav-link' to='/bath-salts'>Bath Salts</Nav.Link>
 
             <Nav.Link eventKey='6' as={NavLink} className='nav-link' to='/candles'>Candles</Nav.Link>
-
+            <Form className={styles.searchFormCollapse}>
+              <InputGroup className="mb-3">
+                <FormControl
+                  className={styles.formInput}
+                  placeholder="Search"
+                  aria-label="Search"
+                  aria-describedby="basic-addon2"
+                />
+                <Button bsPrefix='buttonSearch' className={styles.buttonSearch}  id="button-addon2">
+                  Search
+                </Button>
+              </InputGroup>
+            </Form>
           </Nav>
-          <form className='d-flex'>
-            <input className='form-control me-2' type='search' placeholder='Search' aria-label='Search' />
-            <Button bsPrefix='buttonSearch' className={styles.buttonSearch} type='submit' disabled>Search</Button>
-          </form>
         </Navbar.Collapse>
-      </Container>
+      </div>
     </Navbar>
   )
 }

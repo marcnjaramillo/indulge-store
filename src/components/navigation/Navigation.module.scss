@@ -2,6 +2,13 @@
   display: contents !important;
 }
 
+.navContainer {
+  display: grid;
+  grid-template-columns: 57% 29% 14%;
+  justify-items: start;
+  align-items: center;
+}
+
 .navbarImage {
   max-width: 40%;
 }
@@ -10,8 +17,159 @@
   background-color: #efefef;
 }
 
+.searchForm {
+  display: none;
+}
+
+.navLinks {
+  text-align: center;
+}
+
+.toggleButton {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
 .buttonSearch {
   color:#9368A8;
   border-color: #9368A8;
   border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+  .navbarImage {
+    max-width: 20%;
+  }
+
+  .customerCart {
+    margin-left: 26rem;
+  }
+
+  .toggleButton {
+    margin-left: 3rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: box-shadow 0.15s ease-in-out;
+  }
+
+  .responsiveNav {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 800px) {
+  .navbarImage {
+    max-width: 18%;
+  }
+
+  .customerCart {
+    margin-left: 26rem;
+  }
+
+  .toggleButton {
+    margin-left: 3rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: box-shadow 0.15s ease-in-out;
+  }
+
+  .responsiveNav {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbarImage {
+    max-width: 23%;
+  }
+
+  .navContainer {
+    display: grid;
+    grid-template-columns: 57% 29% 14%;
+    justify-items: end;
+    align-items: end;
+  }
+
+  .searchForm {
+    display: block;
+    font-size: 1.5rem;
+  }
+
+  .formInput {
+    font-size: 1.5rem;
+  }
+
+  .searchFormCollapse {
+    display: none;
+  }
+
+  .customerCart {
+    margin-left: 0;
+    margin-right: 2rem;
+  }
+
+  .responsiveNav {
+    display: block !important;
+    margin-top: 1rem;
+  }
+
+  .navLinks {
+    font-size: 2.25rem;
+    justify-content: space-evenly;
+  }
+
+  .toggleButton {
+    margin-left: 3rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 2.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: box-shadow 0.15s ease-in-out;
+  }
+}
+
+@media (min-width: 1366px) {
+  .navContainer {
+    display: grid;
+    grid-template-columns: 57% 29% 14%;
+    justify-items: end;
+    align-items: end;
+  }
+
+  .searchForm {
+    font-size: 1.5rem;
+  }
+
+  .formInput {
+    font-size: 1.5rem;
+  }
+
+  .customerCart {
+    margin-left: 0;
+  }
+
+  .responsiveNav {
+    display: block !important;
+    margin-top: 1rem;
+  }
+
+  .navLinks {
+    font-size: 2.25rem;
+    justify-content: space-evenly;
+  }
 }

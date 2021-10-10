@@ -25,10 +25,10 @@ const Homepage = ({ products }) => {
       <main className='container'>
         <h1 className={styles.allProducts}>All Products</h1>
         <section className={cn(styles.productSection, 'row')}>
-          <h2>Bath Bombs</h2>
+          <h2 className={styles.sectionHeader}>Bath Bombs</h2>
           {bathBombs.map(bathBomb => {
             return (
-              <span className={cn(styles.product, 'col-6')} key={bathBomb.id}>
+              <span className={cn(styles.product, 'col-6 col-lg-4')} key={bathBomb.id}>
                 <Link to={`/bath-bombs/${bathBomb.handle}`}>
                   {bathBomb.images && (
                     <Image
@@ -38,19 +38,21 @@ const Homepage = ({ products }) => {
                     />
                   )}
                 </Link>
-                <p>{bathBomb.title}</p>
-                {/* <p>${bathBomb.salePrice}</p> */}
-                <p>${bathBomb.regularPrice}</p>
+                <div className={styles.productDetails}>
+                  <p>{bathBomb.title}</p>
+                  {/* <p>${bathBomb.salePrice}</p> */}
+                  <p>${bathBomb.regularPrice}</p>
+                </div>  
               </span>
             )
           }
           )}
         </section>
         <section className={cn(styles.productSection, 'row')}>
-          <h2>Bath Salts</h2>
+          <h2 className={styles.sectionHeader}>Bath Salts</h2>
           {bathSalts.map(bathSalt => {
             return (
-              <span className={cn(styles.product, 'col-6')} key={bathSalt.id}>
+              <span className={cn(styles.product, 'col-6 col-lg-4')} key={bathSalt.id}>
                 <Link to={`/bath-salts/${bathSalt.handle}`}>
                   {bathSalt.images && (
                     <Image
@@ -69,10 +71,10 @@ const Homepage = ({ products }) => {
           )}
         </section>
         <section className={cn(styles.productSection, 'row')}>
-          <h2>Candles</h2>
+          <h2 className={styles.sectionHeader}>Candles</h2>
           {candles.map(candle => {
             return (
-              <span className={cn(styles.product, 'col-6')} key={candle.id}>
+              <span className={cn(styles.product, 'col-6 col-lg-4')} key={candle.id}>
                 <Link to={`/candles/${candle.handle}`}>
                   {candle.images && (
                     <Image
