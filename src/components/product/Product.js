@@ -45,7 +45,7 @@ const Product = ({ addToCart, show, onHide, product: pageProduct }) => {
             <span className={styles.quantity}>{variantQuantity}</span>
             <Button variant='outline-secondary' type='button' onClick={() => incrementQuantity()}>+</Button>
           </div>
-          <Button className={styles.addButton} onClick={() => addToCart(variant.id, variantQuantity)}>Add to Cart</Button>
+          <Button bsPrefix='addButton' className={styles.addButton} onClick={() => addToCart(variant.id, variantQuantity)}>Add to Cart</Button>
         </div>
         <section className={styles.productDescription}>
           <Accordion>
