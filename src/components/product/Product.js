@@ -27,37 +27,37 @@ const Product = ({ addToCart, show, onHide, product: pageProduct }) => {
   }
 
   return (
-    <div className='container'>
+    <div className={styles.productLayout}>
+      <ProductModal show={show} onHide={onHide} product={product} />
       <header className={styles.productHeader}>
         <Image src={product.images[0].url} alt={`${product.title}`} className={styles.productImage} />
+      </header>
+      <main className={styles.productHeadingContainer}>
         <h1 className={styles.productHeading}>{handle.replace(/-/g, ' ')}</h1>
         <p className={styles.productPrice}>${variant.price}</p>
-      </header>
-      <main className={styles.productBody}>
-        <ProductModal show={show} onHide={onHide} product={product} />
-        <div className={styles.addToCart}>
-          <div className="input-group">
-            {variantQuantity > 1 ? (
-              <Button variant='outline-secondary' type='button' onClick={() => decrementQuantity()}>-</Button>
-            ) : (
-              <Button variant='outline-secondary' type='button' disabled>-</Button>
-            )}
-            <span className={styles.quantity}>{variantQuantity}</span>
-            <Button variant='outline-secondary' type='button' onClick={() => incrementQuantity()}>+</Button>
-          </div>
-          <Button bsPrefix='addButton' className={styles.addButton} onClick={() => addToCart(variant.id, variantQuantity)}>Add to Cart</Button>
-        </div>
-        <section className={styles.productDescription}>
-          <Accordion>
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>Description</Accordion.Header>
-              <Accordion.Body className={styles.descriptionBody}>
-                {product.description}
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        </section>
       </main>
+      <section className={styles.addToCart}>
+        <div className="input-group">
+          {variantQuantity > 1 ? (
+            <Button bsPrefix='button' className={styles.button} variant='outline-secondary' type='button' onClick={() => decrementQuantity()}>-</Button>
+          ) : (
+            <Button bsPrefix='button' className={styles.button} variant='outline-secondary' type='button' disabled>-</Button>
+          )}
+          <span className={styles.quantity}>{variantQuantity}</span>
+          <Button bsPrefix='button' className={styles.button} variant='outline-secondary' type='button' onClick={() => incrementQuantity()}>+</Button>
+        </div>
+        <Button bsPrefix='addButton' className={styles.addButton} onClick={() => addToCart(variant.id, variantQuantity)}>Add to Cart</Button>
+      </section>
+      <section className={styles.productDescription}>
+        <Accordion>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>Description</Accordion.Header>
+            <Accordion.Body className={styles.descriptionBody}>
+              {product.description}
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      </section>
     </div>
 
   )

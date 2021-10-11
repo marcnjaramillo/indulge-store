@@ -1,13 +1,13 @@
 .pageHeading {
-  border-top: 1px solid;
   border-bottom: 1px solid;
-  text-align: center;
+  border-top: 1px solid;
   margin: 3rem 0;
+  text-align: center;
 }
 
 .categoryHeading {
-  text-transform: capitalize;
   margin-top: 0.5rem;
+  text-transform: capitalize;
 }
 
 .productImage {
@@ -15,24 +15,34 @@
 }
 
 .productSection {
-  margin: 0 0 0 0.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
 }
 
 .product {
   margin-bottom: 1.5rem;
 }
 
+.productDetails {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.productText {
+  margin-bottom: 0;
+}
+
 @media (min-width: 1024px) {
   .categoryHeading {
     font-size: 3.5rem;
-    text-transform: capitalize;
     margin-top: 0.5rem;
+    text-transform: capitalize;
   }
 
   .productSection {
-    padding: 3rem;
     font-size: 2rem;
-    justify-content: center;
+    padding: 3rem;
   }
 
   .product {
@@ -42,8 +52,8 @@
 
 @media (min-width: 1366px) {
   .productSection {
-    padding: 3rem;
     font-size: 2.5rem;
+    padding: 3rem;
   }
 
   .product {

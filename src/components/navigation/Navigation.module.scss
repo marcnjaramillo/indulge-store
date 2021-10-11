@@ -3,14 +3,19 @@
 }
 
 .navContainer {
-  display: grid;
-  grid-template-columns: 57% 29% 14%;
-  justify-items: start;
   align-items: center;
+  display: grid;
+  grid-template-columns: 60% 25% 14%;
+  justify-items: start;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
 }
 
 .navbarImage {
-  max-width: 40%;
+  max-width: 48%;
 }
 
 .navbarBackground {
@@ -26,19 +31,24 @@
 }
 
 .toggleButton {
-  padding: 0.25rem 0.75rem;
-  font-size: 1.25rem;
-  line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0.25rem 0.75rem;
   transition: box-shadow 0.15s ease-in-out;
 }
 
+.searchFormCollapse {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .buttonSearch {
-  color:#9368A8;
   border-color: #9368A8;
   border-radius: 4px;
+  color:#9368A8;
 }
 
 @media (min-width: 768px) {
@@ -46,18 +56,28 @@
     max-width: 20%;
   }
 
+  .navContainer {
+    align-items: center;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 100%;
+  }
+
   .customerCart {
     margin-left: 26rem;
   }
 
   .toggleButton {
-    margin-left: 3rem;
-    padding: 0.25rem 0.75rem;
-    font-size: 1.25rem;
-    line-height: 1;
     background-color: transparent;
     border: 1px solid transparent;
     border-radius: 0.25rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-left: 3rem;
+    padding: 0.25rem 0.75rem;
     transition: box-shadow 0.15s ease-in-out;
   }
 
@@ -68,7 +88,18 @@
 
 @media (min-width: 800px) {
   .navbarImage {
-    max-width: 18%;
+    max-width: 15%;
+  }
+
+  .navContainer {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
   }
 
   .customerCart {
@@ -76,13 +107,13 @@
   }
 
   .toggleButton {
-    margin-left: 3rem;
-    padding: 0.25rem 0.75rem;
-    font-size: 1.25rem;
-    line-height: 1;
     background-color: transparent;
     border: 1px solid transparent;
     border-radius: 0.25rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-left: 3rem;
+    padding: 0.25rem 0.75rem;
     transition: box-shadow 0.15s ease-in-out;
   }
 
@@ -97,10 +128,10 @@
   }
 
   .navContainer {
+    align-items: end;
     display: grid;
     grid-template-columns: 57% 29% 14%;
     justify-items: end;
-    align-items: end;
   }
 
   .searchForm {
@@ -132,23 +163,23 @@
   }
 
   .toggleButton {
-    margin-left: 3rem;
-    padding: 0.25rem 0.75rem;
-    font-size: 2.25rem;
-    line-height: 1;
     background-color: transparent;
     border: 1px solid transparent;
     border-radius: 0.25rem;
+    font-size: 2.25rem;
+    line-height: 1;
+    margin-left: 3rem;
+    padding: 0.25rem 0.75rem;
     transition: box-shadow 0.15s ease-in-out;
   }
 }
 
 @media (min-width: 1366px) {
   .navContainer {
+    align-items: end;
     display: grid;
     grid-template-columns: 57% 29% 14%;
     justify-items: end;
-    align-items: end;
   }
 
   .searchForm {

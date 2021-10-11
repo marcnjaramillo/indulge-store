@@ -34,9 +34,11 @@ const Products = ({ products, cart, addToCart, show, onHide }) => {
                         />
                       )}
                     </Link>
-                    <p>{product.title}</p>
-                    <p>${product.price}</p>
-                    {/* <p>${product.regularPrice}</p> */}
+                    <div className={styles.productDetails}>
+                      <p className={styles.productText}>{product.title}</p>
+                      <p className={styles.productText}>${product.price}</p>
+                      {/* <p className={styles.productText}>${product.regularPrice}</p> */}
+                    </div>
                   </span>
                 )
               }

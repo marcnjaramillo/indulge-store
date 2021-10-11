@@ -39,11 +39,11 @@ const Navigation = ({ cart }) => {
         <Nav.Link className={styles.customerCart} eventKey='2' as={NavLink} to='/cart'>
           <CartIcon cart={cart} />
         </Nav.Link>
-        </div>
         <Navbar.Toggle
           className={styles.toggleButton} 
           aria-controls='responsive-nabar-nav' 
         />
+        </div>
         <Navbar.Collapse bsPrefix='responsiveNav' className={styles.responsiveNav} id='responsive-nabar-nav'>
           <Nav className={cn(styles.navLinks, 'me-auto mb-2 mb-lg-0')} >
             <Nav.Link eventKey='3' as={NavLink} className='nav-link' to='/'>Home</Nav.Link>

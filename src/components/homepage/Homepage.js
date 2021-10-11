@@ -22,7 +22,7 @@ const Homepage = ({ products }) => {
           </div>
         </div>
       </header>
-      <main className='container'>
+      <main>
         <h1 className={styles.allProducts}>All Products</h1>
         <section className={cn(styles.productSection, 'row')}>
           <h2 className={styles.sectionHeader}>Bath Bombs</h2>
@@ -39,9 +39,9 @@ const Homepage = ({ products }) => {
                   )}
                 </Link>
                 <div className={styles.productDetails}>
-                  <p>{bathBomb.title}</p>
-                  {/* <p>${bathBomb.salePrice}</p> */}
-                  <p>${bathBomb.regularPrice}</p>
+                  <p className={styles.productText}>{bathBomb.title}</p>
+                  <p className={styles.productText}>${bathBomb.regularPrice}</p>
+                  {/* <p className={styles.productText}>${bathBomb.salePrice}</p> */}
                 </div>  
               </span>
             )
@@ -62,9 +62,11 @@ const Homepage = ({ products }) => {
                     />
                   )}
                 </Link>
-                <p>{bathSalt.title}</p>
-                {/* <p>${bathSalt.salePrice}</p> */}
-                <p>${bathSalt.regularPrice}</p>
+                <div className={styles.productDetails}>
+                  <p className={styles.productText}>{bathSalt.title}</p>
+                  <p className={styles.productText}>${bathSalt.regularPrice}</p>
+                  {/* <p className={styles.productText}>${bathSalt.salePrice}</p> */}
+                </div>
               </span>
             )
           }
@@ -84,9 +86,11 @@ const Homepage = ({ products }) => {
                     />
                   )}
                 </Link>
-                <p>{candle.title}</p>
-                {/* <p>${candle.salePrice}</p> */}
-                <p>${candle.regularPrice}</p>
+                <div className={styles.productDetails}>
+                  <p className={styles.productText}>{candle.title}</p>
+                  <p className={styles.productText}>${candle.regularPrice}</p>
+                  {/* <p className={styles.productText}>${candle.salePrice}</p> */}
+                </div>
               </span>
             )
           }

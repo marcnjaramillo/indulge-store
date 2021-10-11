@@ -28,4 +28,14 @@ button:focus {
     font-size: 2.25rem;
     margin-right: 2rem;
   }
+
+  .accordion-button {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1366px) {
+  .accordion-button {
+    font-size: 2.5rem;
+  }
 }
