@@ -40,7 +40,7 @@ const Homepage = ({ products }) => {
                 </Link>
                 <div className={styles.productDetails}>
                   <p className={styles.productText}>{bathBomb.title}</p>
-                  <p className={styles.productText}>${bathBomb.regularPrice}</p>
+                  <p className={styles.productText}>${bathBomb.price}</p>
                   {/* <p className={styles.productText}>${bathBomb.salePrice}</p> */}
                 </div>  
               </span>
@@ -64,7 +64,7 @@ const Homepage = ({ products }) => {
                 </Link>
                 <div className={styles.productDetails}>
                   <p className={styles.productText}>{bathSalt.title}</p>
-                  <p className={styles.productText}>${bathSalt.regularPrice}</p>
+                  <p className={styles.productText}>${bathSalt.price}</p>
                   {/* <p className={styles.productText}>${bathSalt.salePrice}</p> */}
                 </div>
               </span>
@@ -88,7 +88,7 @@ const Homepage = ({ products }) => {
                 </Link>
                 <div className={styles.productDetails}>
                   <p className={styles.productText}>{candle.title}</p>
-                  <p className={styles.productText}>${candle.regularPrice}</p>
+                  <p className={styles.productText}>${candle.price}</p>
                   {/* <p className={styles.productText}>${candle.salePrice}</p> */}
                 </div>
               </span>
