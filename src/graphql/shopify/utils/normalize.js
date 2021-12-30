@@ -37,7 +37,7 @@ const normalizeProductVariants = ({ edges }) => {
       title,
       sku: sku || id,
       price: priceV2.amount,
-      regularPrice: compareAtPriceV2.amount,
+      salePrice: compareAtPriceV2?.amount,
       requiresShipping: true,
       options: selectedOptions.map(({ name, value }) => {
         const option = normalizeProductOption({
