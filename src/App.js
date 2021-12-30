@@ -15,7 +15,7 @@ import { Homepage, Navigation, Products, Cart } from './components'
 import './App.scss'
 
 const App = () => {
-  const [cart, setCart] = useState({ lines: { edges: [] } })
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')))
 
   const [modalShow, setModalShow] = useState(false);
 
@@ -36,16 +36,18 @@ const App = () => {
   } = useQuery(GET_ALL_PRODUCTS_QUERY)
 
   useEffect(() => {
-    const variables = { input: {} }
-    createCartMutation({ variables }).then(
-      res => {
-        console.log(res)
-      },
-      err => {
-        console.log('create cart error', err)
-      }
-    )
-
+    if (!cart) {
+      const variables = { input: {} }
+      createCartMutation({ variables }).then(
+        res => {
+          const { cart } = res.data.cartCreate
+          console.log(cart)
+        },
+        err => {
+          console.log('create cart error', err)
+        }
+      )
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -61,7 +63,6 @@ const App = () => {
   const addToCart = (merchandiseId, quantity) => {
     setModalShow(true)
     const variables = { cartId: cart.id, lines: [{ merchandiseId, quantity: parseInt(quantity, 10) }] }
-
     cartLinesAddMutation({ variables })
   }
 
