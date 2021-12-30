@@ -144,6 +144,9 @@ export const cartLinesRemove = gql`
           }
         }
         estimatedCost {
+          totalAmount {
+            amount
+          }
           subtotalAmount {
             amount
           }
@@ -164,6 +167,7 @@ export function useCartEffect(data, key, setDataCallback) {
   useEffect(() => {
     if (data && data[key] && data[key].cart) {
       setDataCallback(data[key].cart)
+      localStorage.setItem('cart', JSON.stringify(data[key].cart))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
