@@ -16,7 +16,7 @@ import './App.scss'
 
 const App = () => {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')))
-
+console.log(cart)
   const [modalShow, setModalShow] = useState(false);
 
   const [createCartMutation,
@@ -76,7 +76,7 @@ const App = () => {
     cartLinesRemoveMutation({ variables })
   }
 
-  if (shopLoading) {
+  if (!cart || shopLoading) {
     return <p>Loading...</p>
   }
 
