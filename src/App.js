@@ -42,6 +42,7 @@ console.log(cart)
         res => {
           const { cart } = res.data.cartCreate
           console.log(cart)
+          localStorage.setItem('cart', JSON.stringify(cart))
         },
         err => {
           console.log('create cart error', err)

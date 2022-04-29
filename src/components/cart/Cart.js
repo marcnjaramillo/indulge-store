@@ -23,6 +23,8 @@ const Cart = ({ cart, removeCartLines, updateCartLines }) => {
     return <p>{cartError.message}</p>
   }
 
+  console.log(cartData)
+
   const line_items = cartData.cart.lines.edges.map((line_item) => {
     return (
       <LineItem
