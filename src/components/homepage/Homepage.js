@@ -36,7 +36,7 @@ const Homepage = () => {
 
   return (
     <>
-      <main>
+    <header className='relative z-10'>
         {/* Decorative image and overlay */}
         <div aria-hidden='true' className='absolute inset-0 overflow-hidden'>
           <img
@@ -49,7 +49,7 @@ const Homepage = () => {
           aria-hidden='true'
           className='absolute inset-0 bg-gray-900 opacity-50'
         />
-                <div className='relative max-w-3xl mx-auto py-32 px-6 flex flex-col items-center text-center sm:py-48 lg:px-0'>
+                <div className='relative max-w-3xl mx-auto py-32 px-6 flex flex-col items-center text-center lg:px-0'>
           <h1 className='text-4xl font-display tracking-tight text-white lg:text-6xl'>
             Indulge in...
           </h1>
@@ -67,10 +67,12 @@ const Homepage = () => {
             Go Ahead - Indulge
           </NavLink>
         </div>
+    </header>
+      <main>
         {/* Category section */}
         <section
           aria-labelledby='category-heading'
-          className='pt-24 sm:pt-32 xl:max-w-7xl xl:mx-auto xl:px-8'>
+          className='pt-16 sm:pt-24 xl:max-w-7xl xl:mx-auto xl:px-8'>
           <div className='px-4 sm:px-6 sm:flex sm:items-center sm:justify-between lg:px-8 xl:px-0'>
             <h2
               id='category-heading'
