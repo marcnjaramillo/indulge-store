@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import { Button, Image } from 'react-bootstrap'
 
 import { TrashIcon } from '../icons'
 
@@ -25,7 +24,7 @@ function LineItem({ line_item, removeCartLines, updateCartLines }) {
     <>
       <li className={styles.cartLine}>
         <div className={styles.imageContainer}>
-          <Image
+          <img
             className={styles.productImage}
             alt={`${line_item.title}`}
             src={line_item.merchandise.image.originalSrc}
@@ -44,14 +43,14 @@ function LineItem({ line_item, removeCartLines, updateCartLines }) {
           </div>
           <div className={styles.lineQuantity}>
             <div className='input-group'>
-              <Button variant='outline-secondary' type='button' onClick={() => decrementQuantity(line_item.id, line_item.merchandise.id)}>-</Button>
+              <button variant='outline-secondary' type='button' onClick={() => decrementQuantity(line_item.id, line_item.merchandise.id)}>-</button>
               <span className={styles.quantity}>{lineQuantity}</span>
-              <Button variant='outline-secondary' type='button' onClick={() => incrementQuantity(line_item.id, line_item.merchandise.id)}>+</Button>
+              <button variant='outline-secondary' type='button' onClick={() => incrementQuantity(line_item.id, line_item.merchandise.id)}>+</button>
             </div>
           </div>
         </div>
         <div>
-          <Button bsPrefix='removeButton' className={styles.removeButton} onClick={() => removeCartLines(line_item.id)}><TrashIcon/> Remove</Button>
+          <button bsPrefix='removeButton' className={styles.removeButton} onClick={() => removeCartLines(line_item.id)}><TrashIcon/> Remove</button>
         </div>
       </li>
     </>

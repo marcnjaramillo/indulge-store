@@ -1,5 +1,4 @@
 import { Link, Switch, Route, useParams, useRouteMatch } from 'react-router-dom'
-import { Image } from 'react-bootstrap'
 import cn from 'classnames'
 
 import { Product } from '../'
@@ -27,7 +26,7 @@ const Products = ({ products, cart, addToCart, show, onHide }) => {
                   <span className={cn(styles.product, 'col-6 col-lg-4')} key={product.id}>
                     <Link to={`${url}/${product.handle}`}>
                       {product.images && (
-                        <Image
+                        <image
                           className={styles.productImage}
                           alt={`${product.title}`}
                           src={product.images[0].url}
@@ -46,7 +45,7 @@ const Products = ({ products, cart, addToCart, show, onHide }) => {
             </section>
           </main>
         </Route>
-        <Route path={`${path}/:handle`}>
+        {/* <Route path={`${path}/:handle`}>
           <Product
             product={pageProducts}
             cart={cart}
@@ -54,7 +53,7 @@ const Products = ({ products, cart, addToCart, show, onHide }) => {
             show={show}
             onHide={onHide}
           />
-        </Route>
+        </Route> */}
       </Switch>
     </>
   )
