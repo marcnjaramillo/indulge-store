@@ -1,21 +1,21 @@
-import cn from 'classnames'
+import { ShoppingBagIcon } from '@heroicons/react/outline'
 import styles from './CartIcon.module.scss'
 
 const CartIcon = ({ cart }) => {
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="grey" className={cn(styles.cart, 'bi bi-cart')} viewBox="0 0 16 16" value="1">
-        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-      </svg>
-      {
-        cart.lines.edges.length !== 0 ? (
-          <span className={styles.itemCount}>{cart.lines.edges.length}</span>
-        ) : (
-          undefined
-        )
-      }
+      <ShoppingBagIcon
+        className='flex-shrink-0 h-8 w-8 xl:h-10 xl:w-10 text-slate-500'
+        aria-hidden='true'
+      />
+      {cart.lines.edges.length !== 0 ? (
+        <>
+          <span className='text-sm font-bold text-white align-top rounded-xl px-2 ml-[-4px] absolute bg-gradient-to-b from-indigo-500 to-purple-500'>{cart.lines.edges.length}</span>
+          <span className='sr-only'>items in cart, view bag</span>
+        </>
+      ) : undefined}
     </>
-  )
-}
+  );
+};
 
-export default CartIcon
+export default CartIcon;
