@@ -1,12 +1,9 @@
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import bathBomb from '../../assets/images/bath-bomb-category.jpeg';
 import bathSalt from '../../assets/images/bath-salt-category.jpeg';
 import candle from '../../assets/images/candle-category.jpeg';
-
-// import cn from 'classnames';
-
-// import styles from './Homepage.module.scss';
+import hero from '../../assets/images/homepage-hero.jpeg';
 
 const categories = [
   {
@@ -40,6 +37,36 @@ const Homepage = () => {
   return (
     <>
       <main>
+        {/* Decorative image and overlay */}
+        <div aria-hidden='true' className='absolute inset-0 overflow-hidden'>
+          <img
+            src={hero}
+            alt='hero image of spa products'
+            className='w-full h-full object-center object-cover'
+          />
+        </div>
+        <div
+          aria-hidden='true'
+          className='absolute inset-0 bg-gray-900 opacity-50'
+        />
+                <div className='relative max-w-3xl mx-auto py-32 px-6 flex flex-col items-center text-center sm:py-48 lg:px-0'>
+          <h1 className='text-4xl font-display tracking-tight text-white lg:text-6xl'>
+            Indulge in...
+          </h1>
+          <h3 className='text-4xl font-display tracking-tight text-white lg:text-6xl'>
+            Me Time
+          </h3>
+          <p className='mt-4 text-xl font-sans text-white'>
+            Everyone needs time to unwind. Find what you need to turn your "me"
+            time into a luxury spa experience - without having to leave your
+            home.
+          </p>
+          <NavLink
+            to='/'
+            className='mt-8 inline-block bg-white border border-transparent rounded-md py-3 px-8 text-xl font-bold font-sans text-white bg-gradient-to-b from-indigo-500 to-purple-500 hover:from-sky-600 hover:to-cyan-400'>
+            Go Ahead - Indulge
+          </NavLink>
+        </div>
         {/* Category section */}
         <section
           aria-labelledby='category-heading'
