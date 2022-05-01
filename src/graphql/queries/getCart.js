@@ -10,6 +10,10 @@ const cartItem = gql`
       originalSrc
     }
     title
+    product {
+      productType
+      handle
+    }
   }
 `
 
