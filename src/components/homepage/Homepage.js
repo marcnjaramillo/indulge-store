@@ -41,7 +41,7 @@ const Homepage = () => {
         <div aria-hidden='true' className='absolute inset-0 overflow-hidden'>
           <img
             src={hero}
-            alt='hero image of spa products'
+            alt='spa products'
             className='w-full h-full object-center object-cover'
           />
         </div>
@@ -98,7 +98,7 @@ const Homepage = () => {
                       <span aria-hidden='true' className='absolute inset-0'>
                         <img
                           src={category.imageSrc}
-                          alt='category image'
+                          alt='category'
                           className='w-full h-full object-center object-cover'
                         />
                       </span>

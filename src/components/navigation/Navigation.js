@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react';
-import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
+import { Dialog, Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { NavLink } from 'react-router-dom';
 
@@ -100,7 +100,7 @@ const Navigation = ({ cart }) => {
         <header className='relative z-10'>
           <nav aria-label='Top'>
             {/* Secondary navigation */}
-            <div className='bg-neutral-300 py-2'>
+            <div className='bg-neutral-100 py-2'>
               <div className='max-w-8xl mx-auto px-4 sm:px-6 lg:px-8'>
                 <div>
                   <div className='h-16 flex items-center justify-between'>
