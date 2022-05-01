@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import { Tab } from '@headlessui/react';
 import { MinusIcon, PlusIcon } from '@heroicons/react/outline';
 // import { StarIcon } from '@heroicons/react/solid'
 import { useParams } from 'react-router-dom';
 
 import { ProductModal } from '../';
-
-import styles from './Product.module.scss';
 
 const Product = ({ addToCart, show, onHide, product: pageProduct }) => {
   let { handle } = useParams();
@@ -28,7 +25,7 @@ const Product = ({ addToCart, show, onHide, product: pageProduct }) => {
 
   return (
     <div>
-      {/* <ProductModal show={show} onHide={onHide} product={product} /> */}
+      <ProductModal show={show} onHide={onHide} product={product} />
       <main className='max-w-7xl mx-auto sm:pt-16 sm:px-6 lg:px-8'>
         <div className='max-w-2xl mx-auto lg:max-w-none'>
           {/* Product */}
@@ -137,7 +134,7 @@ const Product = ({ addToCart, show, onHide, product: pageProduct }) => {
                     </button>
                   )}
                   <div className='-ml-px relative flex items-stretch flex-grow focus-within:z-10'>
-                    <span className='inline-flex items-center content-center focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-none rounded-l-md sm:text-sm border-indigo-500'>
+                    <span className='inline-flex items-center justify-center focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-none rounded-l-md sm:text-sm border-indigo-500'>
                       {variantQuantity}
                     </span>
                   </div>

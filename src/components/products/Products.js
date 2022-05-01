@@ -38,7 +38,7 @@ const Products = ({ products, cart, addToCart, show, onHide }) => {
                         key={product.id}
                         className='w-64 inline-flex flex-col text-center lg:w-auto lg:mb-4'>
                         <div className='group relative'>
-                          <div className='w-full bg-gray-200 rounded-md overflow-hidden aspect-w-1 aspect-h-1'>
+                          <div className='w-full bg-gray-200 rounded-md overflow-hidden'>
                             {product.images && (
                               <img
                                 src={product.images[0].url}
