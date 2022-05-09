@@ -1,5 +1,4 @@
 import { ShoppingBagIcon } from '@heroicons/react/outline'
-import styles from './CartIcon.module.scss'
 
 const CartIcon = ({ cart }) => {
   return (

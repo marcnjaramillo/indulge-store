@@ -15,8 +15,7 @@ import { Homepage, Navigation, Products, Cart } from './components'
 import './App.scss'
 
 const App = () => {
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')))
-console.log(cart)
+  const [cart, setCart] = useState(null)
   const [modalShow, setModalShow] = useState(false);
 
   const [createCartMutation,
@@ -41,14 +40,14 @@ console.log(cart)
       createCartMutation({ variables }).then(
         res => {
           const { cart } = res.data.cartCreate
-          console.log(cart)
-          localStorage.setItem('cart', JSON.stringify(cart))
+          setCart(cart)
         },
         err => {
           console.log('create cart error', err)
         }
       )
     }
+    setCart(cart)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -65,16 +64,19 @@ console.log(cart)
     setModalShow(true)
     const variables = { cartId: cart.id, lines: [{ merchandiseId, quantity: parseInt(quantity, 10) }] }
     cartLinesAddMutation({ variables })
+    setCart(cart, ...variables)
   }
 
   const updateCartLines = (lineId, merchandiseId, quantity) => {
     const variables = { cartId: cart.id, lines: [{ id: lineId, merchandiseId, quantity: parseInt(quantity, 10) }] }
     cartLinesUpdateMutation({ variables })
+    setCart(cart, ...variables)
   };
 
   const removeCartLines = (lineId) => {
     const variables = { cartId: cart.id, lineIds: [lineId] }
     cartLinesRemoveMutation({ variables })
+    setCart(cart, ...variables)
   }
 
   if (!cart || shopLoading) {
